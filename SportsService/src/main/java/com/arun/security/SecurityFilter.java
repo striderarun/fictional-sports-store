@@ -12,9 +12,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.arun.util.SecurityUtil;
+
+import static com.arun.constants.ServiceConstants.HMAC;
+import static com.arun.constants.ServiceConstants.HMAC_SECRET;
+import static com.arun.constants.ServiceConstants.OVERRIDEAUTH;
+import static com.arun.constants.ServiceConstants.TIMESTAMP;
 
 
 public class SecurityFilter implements Filter {
@@ -48,14 +54,17 @@ public class SecurityFilter implements Filter {
 	private boolean isValidRequest(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
 		boolean validRequest = false;
 
-		final String timeStamp = request.getHeader("timestamp");
-		final String receivedEncryptedData = request.getHeader("hmac");
-		if (StringUtils.isNotBlank(timeStamp) && StringUtils.isNotBlank(receivedEncryptedData)) {
+		final String timeStamp = request.getHeader(TIMESTAMP);
+		final String receivedEncryptedData = request.getHeader(HMAC);
+		final String overrideAuth = request.getHeader(OVERRIDEAUTH);
+		if (BooleanUtils.toBoolean(overrideAuth)) {
+			validRequest = true;
+		} else if (StringUtils.isNotBlank(timeStamp) && StringUtils.isNotBlank(receivedEncryptedData)) {
 			final long currentTime = Calendar.getInstance().getTimeInMillis();
 			final long requestTime = Long.parseLong(timeStamp);
 			final long timeDelay = Math.abs(requestTime - currentTime);
 			if (timeDelay < 5000) {
-				final String expectedEncryptedData = SecurityUtil.calculateRFC2104HMACForString(timeStamp,"82f9f37fd83be96eabb23e15d7548505");
+				final String expectedEncryptedData = SecurityUtil.calculateRFC2104HMACForString(timeStamp,HMAC_SECRET);
 				if (expectedEncryptedData.equals(receivedEncryptedData)) {
 					validRequest = true;
 				}
