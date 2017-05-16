@@ -6,7 +6,9 @@
   <packaging>war</packaging>
   
   <properties>
-  			<sonar.jacoco.reportPath>/Users/arun_subramonian/Documents/Prices/SportsService/target/jacoco.exec</sonar.jacoco.reportPath>
+	  <sonar.jacoco.reportPath>/Users/arun_subramonian/Documents/Prices/SportsService/target/jacoco.exec</sonar.jacoco.reportPath>
+	  <maven.compiler.source>1.8</maven.compiler.source>
+	  <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   
   	<parent>
