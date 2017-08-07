@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/striderarun/fictional-sports-store.svg?branch=master)](https://travis-ci.org/striderarun/fictional-sports-store)
+
 # spring-boot-web-app
 A web application built using Spring Boot, Spring Data and jQuery for managing items in a fictional sports store
 
