@@ -3,6 +3,10 @@ package com.arun.rest.controller;
 
 import java.util.List;
 
+import org.jsondoc.core.annotation.ApiHeader;
+import org.jsondoc.core.annotation.ApiHeaders;
+import org.jsondoc.core.annotation.ApiMethod;
+import org.jsondoc.core.annotation.ApiResponseObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +37,9 @@ import com.arun.response.ShoeListResponse;
 import com.arun.service.RunService;
 import com.arun.specification.ShoeSpecification;
 
+import static org.springframework.http.HttpHeaders.ACCEPT;
+import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
+
 @RestController
 @RequestMapping(value = "/shoes")
 public class RunController {
@@ -47,6 +54,12 @@ public class RunController {
 	private Environment env;
 
 	@Loggable
+	@ApiMethod(description = "Get All Shoes", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/getAllShoes", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ShoeListResponse getAllShoes() {
@@ -63,6 +76,12 @@ public class RunController {
 	 * @return
 	 */
 	@Loggable
+	@ApiMethod(description = "Filter shoes", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/getShoesFilter", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ShoeListResponse getShoesFilter(@FilterDefinition(paths = ShoeSpecification.class) Specification<Shoes> filter) {
@@ -73,6 +92,12 @@ public class RunController {
 	}
 	
 	@Loggable
+	@ApiMethod(description = "Paginated shoes list", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/getAllShoesPage", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public Page<ShoeDTO> getAllShoesPaginated(@PageableDefault(page = 0, size = 5, sort = {"brandName"}, direction = Direction.ASC) Pageable pageRequest) {
@@ -82,6 +107,12 @@ public class RunController {
 	}
 
 	@Loggable
+	@ApiMethod(description = "Get shoes by brand", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/getShoesByBrand", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ShoeListResponse getShoesByBrand(@RequestParam(value = "brandName", required = true) final String brandName) {
@@ -92,6 +123,12 @@ public class RunController {
 	}
 
 	@Loggable
+	@ApiMethod(description = "Get shoes by brand and price", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/getShoesByBrandAndPrice", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ShoeListResponse getShoesByBrandAndPrice(@RequestParam(value = "brandName", required = true) final String brandName,@RequestParam(value = "lowerPrice", required = true) final String lowerPrice, @RequestParam(value = "upperPrice", required = true) final String upperPrice) {
