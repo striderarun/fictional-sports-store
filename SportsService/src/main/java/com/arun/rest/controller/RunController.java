@@ -172,6 +172,12 @@ public class RunController {
 	}
 
 	@Loggable
+	@ApiMethod(description = "Add shoe", responsestatuscode = "201 - Created")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/addShoe", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public StatusResponseDTO addShoe(@RequestBody AddShoeRequest addShoe) {
@@ -183,6 +189,12 @@ public class RunController {
 	}
 	
 	@Loggable
+	@ApiMethod(description = "Authenticate", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/authenticate", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public StatusResponseDTO authenticate(@RequestParam(value = "userName", required = true) final String userName, @RequestParam(value = "password", required = true) final String password) {
@@ -201,6 +213,12 @@ public class RunController {
 	}
 	
 	@Loggable
+	@ApiMethod(description = "Update shoe", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/updateShoes", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public StatusResponseDTO updateShoe(@RequestBody List<UpdateShoeRequest> updateShoes) {
