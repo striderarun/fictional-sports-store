@@ -139,6 +139,12 @@ public class RunController {
 	}
 	
 	@Loggable
+	@ApiMethod(description = "Get shoes by brand and price specification", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/getShoesByBrandAndPriceSpec", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ShoeListResponse getShoesByBrandAndPriceSpec(@RequestParam(value = "brandName", required = true) final String brandName,@RequestParam(value = "price", required = true) final String price) {
@@ -150,6 +156,12 @@ public class RunController {
 
 
 	@Loggable
+	@ApiMethod(description = "Get shoes by brand or price specification", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/getShoesByBrandOrPrice", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ShoeListResponse getShoesByBrandOrPrice(@RequestParam(value = "brandName", required = true) final String brandName,@RequestParam(value = "lowerPrice", required = true) final String lowerPrice, @RequestParam(value = "upperPrice", required = true) final String upperPrice) {
