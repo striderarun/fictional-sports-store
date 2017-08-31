@@ -230,6 +230,12 @@ public class RunController {
 	}
 	
 	@Loggable
+	@ApiMethod(description = "Delete shoe", responsestatuscode = "201 - Created")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/deleteShoes", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public StatusResponseDTO delete(@RequestBody UpdateShoeRequest deleteShoe) {
@@ -241,6 +247,12 @@ public class RunController {
 	}
 
 	@Loggable
+	@ApiMethod(description = "Upload shoe image", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/uploadShoeImage", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public StatusResponseDTO uploadImage(@RequestBody ShoeImageDTO shoeImageDTO) {
@@ -252,6 +264,12 @@ public class RunController {
 	}
 	
 	@Loggable
+	@ApiMethod(description = "Fetch shoe image", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/fetchShoeImage", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ShoeImageDTO fetchShoeImage(@RequestParam(value = "shoeId", required = true) final Long shoeId) {

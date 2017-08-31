@@ -1,5 +1,9 @@
 package com.arun.rest.controller;
 
+import org.jsondoc.core.annotation.ApiHeader;
+import org.jsondoc.core.annotation.ApiHeaders;
+import org.jsondoc.core.annotation.ApiMethod;
+import org.jsondoc.core.annotation.ApiResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +19,9 @@ import com.arun.request.RegisterUserRequest;
 import com.arun.response.UserDetailsResponse;
 import com.arun.service.RegisterService;
 
+import static org.springframework.http.HttpHeaders.ACCEPT;
+import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
+
 @RestController 
 @RequestMapping(value = "/register")
 public class RegisterController {  
@@ -23,6 +30,12 @@ public class RegisterController {
 	private RegisterService registerService; 
 	
 	@Loggable
+	@ApiMethod(description = "Add user", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public StatusResponseDTO addUser(@RequestBody RegisterUserRequest registerUser) {
@@ -34,6 +47,12 @@ public class RegisterController {
 	}
 	
 	@Loggable
+	@ApiMethod(description = "Fetch user", responsestatuscode = "200 - OK")
+	@ApiHeaders(headers = {
+			@ApiHeader(name = ACCEPT),
+			@ApiHeader(name = CONTENT_TYPE)
+	})
+	@ApiResponseObject
 	@RequestMapping(value = "/fetchUser", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public UserDetailsResponse fetchUser(@RequestParam(value = "userId", required = true) final String userId) {
