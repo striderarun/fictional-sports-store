@@ -3,6 +3,7 @@ package com.arun.rest.controller;
 
 import java.util.List;
 
+import org.jsondoc.core.annotation.ApiBodyObject;
 import org.jsondoc.core.annotation.ApiHeader;
 import org.jsondoc.core.annotation.ApiHeaders;
 import org.jsondoc.core.annotation.ApiMethod;
@@ -180,7 +181,7 @@ public class RunController {
 	@ApiResponseObject
 	@RequestMapping(value = "/addShoe", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
-	public StatusResponseDTO addShoe(@RequestBody AddShoeRequest addShoe) {
+	public StatusResponseDTO addShoe(@ApiBodyObject @RequestBody AddShoeRequest addShoe) {
 			runService.addShoe(addShoe);
 			StatusResponseDTO statusDTO = new StatusResponseDTO();
 			statusDTO.setStatusCode(0L);
@@ -221,7 +222,7 @@ public class RunController {
 	@ApiResponseObject
 	@RequestMapping(value = "/updateShoes", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
-	public StatusResponseDTO updateShoe(@RequestBody List<UpdateShoeRequest> updateShoes) {
+	public StatusResponseDTO updateShoe(@ApiBodyObject @RequestBody List<UpdateShoeRequest> updateShoes) {
 			runService.updateShoe(updateShoes);
 			StatusResponseDTO statusDTO = new StatusResponseDTO();
 			statusDTO.setStatusCode(0L);
@@ -238,7 +239,7 @@ public class RunController {
 	@ApiResponseObject
 	@RequestMapping(value = "/deleteShoes", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
-	public StatusResponseDTO delete(@RequestBody UpdateShoeRequest deleteShoe) {
+	public StatusResponseDTO delete(@ApiBodyObject @RequestBody UpdateShoeRequest deleteShoe) {
 			runService.deleteShoe(deleteShoe);
 			StatusResponseDTO statusDTO = new StatusResponseDTO();
 			statusDTO.setStatusCode(0L);
@@ -255,7 +256,7 @@ public class RunController {
 	@ApiResponseObject
 	@RequestMapping(value = "/uploadShoeImage", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
-	public StatusResponseDTO uploadImage(@RequestBody ShoeImageDTO shoeImageDTO) {
+	public StatusResponseDTO uploadImage(@ApiBodyObject @RequestBody ShoeImageDTO shoeImageDTO) {
 		runService.uploadShoeImage(shoeImageDTO);
 		StatusResponseDTO statusDTO = new StatusResponseDTO();
 		statusDTO.setStatusCode(0L);
