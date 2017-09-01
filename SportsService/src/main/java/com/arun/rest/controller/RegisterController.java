@@ -1,8 +1,10 @@
 package com.arun.rest.controller;
 
+import org.jsondoc.core.annotation.ApiBodyObject;
 import org.jsondoc.core.annotation.ApiHeader;
 import org.jsondoc.core.annotation.ApiHeaders;
 import org.jsondoc.core.annotation.ApiMethod;
+import org.jsondoc.core.annotation.ApiQueryParam;
 import org.jsondoc.core.annotation.ApiResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +40,7 @@ public class RegisterController {
 	@ApiResponseObject
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
-	public StatusResponseDTO addUser(@RequestBody RegisterUserRequest registerUser) {
+	public StatusResponseDTO addUser(@ApiBodyObject @RequestBody RegisterUserRequest registerUser) {
 	  		registerService.registerUser(registerUser);
 	  		StatusResponseDTO statusDTO = new StatusResponseDTO();
 			statusDTO.setStatusCode(0L);
@@ -55,7 +57,7 @@ public class RegisterController {
 	@ApiResponseObject
 	@RequestMapping(value = "/fetchUser", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
-	public UserDetailsResponse fetchUser(@RequestParam(value = "userId", required = true) final String userId) {
+	public UserDetailsResponse fetchUser(@ApiQueryParam(name = "userId")@RequestParam(value = "userId", required = true) final String userId) {
 	  		return registerService.getUserDetails(userId);
 	}
 	
