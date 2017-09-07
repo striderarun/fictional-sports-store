@@ -273,7 +273,7 @@ public class RunController {
 	@ApiResponseObject
 	@RequestMapping(value = "/fetchShoeImage", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
-	public ShoeImageDTO fetchShoeImage(@RequestParam(value = "shoeId", required = true) final Long shoeId) {
+	public ShoeImageDTO fetchShoeImage(@ApiQueryParam(name = "shoeId") @RequestParam(value = "shoeId", required = true) final Long shoeId) {
 		return runService.fetchShoeImage(shoeId);
 	}
 	
