@@ -199,7 +199,7 @@ public class RunController {
 	@ApiResponseObject
 	@RequestMapping(value = "/authenticate", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
-	public StatusResponseDTO authenticate(@RequestParam(value = "userName", required = true) final String userName, @RequestParam(value = "password", required = true) final String password) {
+	public StatusResponseDTO authenticate(@ApiQueryParam(name = "userName") @RequestParam(value = "userName", required = true) final String userName, @ApiQueryParam(name = "password") @RequestParam(value = "password", required = true) final String password) {
 		UserCreds user = runService.authenticateUser(userName, password);
 		StatusResponseDTO statusDTO = new StatusResponseDTO();
 		if (null != user) {
