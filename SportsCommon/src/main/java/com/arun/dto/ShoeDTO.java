@@ -1,10 +1,19 @@
 package com.arun.dto;
 
+import org.jsondoc.core.annotation.ApiObjectField;
+
 public class ShoeDTO {
 
+	@ApiObjectField(description = "Shoe Id")
 	private Long shoeId;
+
+	@ApiObjectField(description = "Shoe Name")
 	private String shoeName;
+
+	@ApiObjectField(description = "Brand Name")
 	private String brandName;
+
+	@ApiObjectField(description = "Price")
 	private Long price;
 	/**
 	 * @return the shoeId

@@ -1,8 +1,13 @@
 package com.arun.dto;
 
+import org.jsondoc.core.annotation.ApiObjectField;
+
 public class ShoeImageDTO {
 
+	@ApiObjectField(description = "Shoe Id")
 	private Long shoeId;
+
+	@ApiObjectField(description = "Shoe Image")
 	private byte[] shoeImage;
 	/**
 	 * @return the shoeId
