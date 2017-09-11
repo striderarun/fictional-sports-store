@@ -1,10 +1,18 @@
 package com.arun.dto;
 
+import org.jsondoc.core.annotation.ApiObjectField;
+
 public class SessionDTO {
 
+	@ApiObjectField(description = "User Name")
 	private String userName;
+
+	@ApiObjectField(description = "Password")
 	private String password;
+
+	@ApiObjectField(description = "User Role")
 	private String userRole;
+
 	/**
 	 * @return the userName
 	 */

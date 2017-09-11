@@ -9,6 +9,7 @@ public class ShoeImageDTO {
 
 	@ApiObjectField(description = "Shoe Image")
 	private byte[] shoeImage;
+
 	/**
 	 * @return the shoeId
 	 */
