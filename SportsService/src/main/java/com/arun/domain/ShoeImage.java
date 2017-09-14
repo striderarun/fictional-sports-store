@@ -22,33 +22,20 @@ public class ShoeImage {
 	@Lob
 	@Column(name="SHOE_IMAGE")
 	private byte[] shoeImg;
-	/**
-	 * @return the shoeId
-	 */
+
 	public Long getShoeId() {
 		return shoeId;
 	}
-	/**
-	 * @param shoeId the shoeId to set
-	 */
+
 	public void setShoeId(Long shoeId) {
 		this.shoeId = shoeId;
 	}
-	/**
-	 * @return the shoeImage
-	 */
-	public byte[] getShoeImage() {
-		return (byte[])shoeImg.clone();
+
+	public byte[] getShoeImg() {
+		return shoeImg;
 	}
-	/**
-	 * @param shoeImage the shoeImage to set
-	 */
-	public void setShoeImage(byte[] shoeImage) {
-		this.shoeImg = shoeImage.clone();
+
+	public void setShoeImg(byte[] shoeImg) {
+		this.shoeImg = shoeImg;
 	}
-	
-	
-	
-	
-	
 }
