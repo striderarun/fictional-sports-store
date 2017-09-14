@@ -14,14 +14,17 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "SHOE_IMAGE_SEQ", sequenceName = "SHOE_IMAGE_SEQ", allocationSize = 1)
 public class ShoeImage {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SHOE_IMAGE_SEQ")
+	@Column(name="SHOE_ID")
 	private Long shoeId;
+
+	@Lob
+	@Column(name="SHOE_IMAGE")
 	private byte[] shoeImg;
 	/**
 	 * @return the shoeId
 	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SHOE_IMAGE_SEQ")
-	@Column(name="SHOE_ID")
 	public Long getShoeId() {
 		return shoeId;
 	}
@@ -34,8 +37,6 @@ public class ShoeImage {
 	/**
 	 * @return the shoeImage
 	 */
-	@Lob
-	@Column(name="SHOE_IMAGE")
 	public byte[] getShoeImage() {
 		return (byte[])shoeImg.clone();
 	}
