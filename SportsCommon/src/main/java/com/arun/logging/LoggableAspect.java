@@ -16,9 +16,6 @@ public class LoggableAspect {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoggableAspect.class);
 
-	// =================================================
-	// Class Methods
-	// =================================================
 	/**
 	 * Log.
 	 * 
