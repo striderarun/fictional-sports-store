@@ -6,55 +6,36 @@ public class UpdateShoeRequest {
 	private String shoeName;
 	private String brandName;
 	private Long price;
-	/**
-	 * @return the shoeName
-	 */
-	public String getShoeName() {
-		return shoeName;
-	}
-	/**
-	 * @param shoeName the shoeName to set
-	 */
-	public void setShoeName(String shoeName) {
-		this.shoeName = shoeName;
-	}
-	/**
-	 * @return the brandName
-	 */
-	public String getBrandName() {
-		return brandName;
-	}
-	/**
-	 * @param brandName the brandName to set
-	 */
-	public void setBrandName(String brandName) {
-		this.brandName = brandName;
-	}
-	/**
-	 * @return the price
-	 */
-	public Long getPrice() {
-		return price;
-	}
-	/**
-	 * @param price the price to set
-	 */
-	public void setPrice(Long price) {
-		this.price = price;
-	}
-	/**
-	 * @return the shoeId
-	 */
+
 	public Long getShoeId() {
 		return shoeId;
 	}
-	/**
-	 * @param shoeId the shoeId to set
-	 */
+
 	public void setShoeId(Long shoeId) {
 		this.shoeId = shoeId;
 	}
-	
-	
-	
+
+	public String getShoeName() {
+		return shoeName;
+	}
+
+	public void setShoeName(String shoeName) {
+		this.shoeName = shoeName;
+	}
+
+	public String getBrandName() {
+		return brandName;
+	}
+
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+
+	public Long getPrice() {
+		return price;
+	}
+
+	public void setPrice(Long price) {
+		this.price = price;
+	}
 }
