@@ -16,7 +16,12 @@ public class CommonServiceImpl implements CommonService{
 
 	@Autowired
 	private Mapper mapper;
-	
+
+	/**
+	 * Convert List<Shoe> to List<ShoeDTO>
+	 * @param allShoes
+	 * @return
+	 */
 	@Override
 	public List<ShoeDTO> getShoeDTO(List<Shoes> allShoes){
 		List<ShoeDTO> allShoesDTO = new ArrayList<ShoeDTO>();
