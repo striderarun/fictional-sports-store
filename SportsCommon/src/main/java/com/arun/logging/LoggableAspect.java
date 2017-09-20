@@ -17,7 +17,7 @@ public class LoggableAspect {
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoggableAspect.class);
 
 	/**
-	 * Log.
+	 * Log total time taken to execute the annotated method
 	 * 
 	 * @param proceedingJoinPoint the proceeding join point
 	 * @param loggable the loggable
