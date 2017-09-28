@@ -11,7 +11,13 @@ import javax.crypto.spec.SecretKeySpec;
 public class SecurityUtil {
 
 	private static final String HMAC_SHA1_ALGORITHM = "HmacSHA1";
-	
+
+	/**
+	 * Generate secret key using HMAC 
+	 * @param data
+	 * @param secretKey
+	 * @return
+	 */
 	public static String calculateRFC2104HMACForString(final String data, final String secretKey) {
 		String returnVal = null;
 		if (data != null && secretKey != null) {
