@@ -66,7 +66,7 @@ td { padding: 11px; padding-top: 20px; padding-left: 0px; vertical-align: top; }
 
 .signinbutton { float: right; margin: 12px 0 0 0; clear: right; }
 
-#lgoinFooter { width: 795px; padding-bottom: 2em; margin: 0 auto; text-align: center; }
+#loginFooter { width: 795px; padding-bottom: 2em; margin: 0 auto; text-align: center; }
 
 select { margin: 0; color: -moz-comboboxtext; text-align: start; text-indent: 0; cursor: default; font: -moz-list; line-height: normal !important; overflow: -moz-hidden-unscrollable; text-shadow: none; white-space: nowrap !important; word-wrap: normal !important; background-color: #FAFAFA; border: 1px solid #CCC; height: 20px; -webkit-border-radius:4px; -moz-border-radius: 4px; border: 1px solid #CCCCCC; width: 10em; }
 
@@ -94,4 +94,3 @@ h4 { font-size: 12px; }
 
 #signup { float: left}
 
-/* #button2 { float: right} */
